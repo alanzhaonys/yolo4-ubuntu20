@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # https://robocademy.com/2020/05/01/a-gentle-introduction-to-yolo-v4-for-object-detection-in-ubuntu-20-04/
 # https://bitbucket.org/!api/2.0/snippets/RobotAndCode/Eb7dke/309e3e0cd9e97a7293597bfcbf1583e08ccdbcd4/files/easy-install-yolo-darknet.sh
 # https://www.youtube.com/channel/UCQam-u9KZaMSelXoJDRrYJA
@@ -59,6 +58,7 @@ git clone https://github.com/AlexeyAB/darknet
 cd darknet
 
 # Modify Makefile
+
 # For CPU
 GPU=0
 CUDNN=0
@@ -87,3 +87,8 @@ Run: make
 # Download yolov4.weights https://drive.google.com/file/d/1cewMfusmPjYWbrnuJRuKhPMwRe_b9PaT/view
 
 ./darknet detect cfg/yolov4.cfg yolov4.weights data/person.jpg
+./darknet detector test cfg/coco.data cfg/yolov4.cfg yolov4.weights data/person.jpg -i 0 -thresh 0.25
+
+# Webcam
+
+./darknet detector demo cfg/coco.data cfg/yolov4.cfg yolov4.weights -c 0
