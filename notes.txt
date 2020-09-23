@@ -1,0 +1,9 @@
+# Train
+# Yolo 4
+./darknet detector train training/model_buzzbutton/buzzbutton.data training/model_buzzbutton/yolov4-tiny-buzzbutton.cfg weights/yolov4-tiny.conv.29 map
+
+# Yolo 3
+./darknet detector train training/model_buzzbutton/buzzbutton.data training/model_buzzbutton/yolov3-tiny-buzzbutton.cfg weights/yolov3-tiny.conv.11
+
+# Test
+./darknet detector test ./training/model_buzzbutton/buzzbutton.data ./training/model_buzzbutton/yolov4-tiny-buzzbutton.cfg ./backup/yolov4-tiny-buzzbutton_final.weights
